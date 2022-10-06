@@ -91,6 +91,7 @@ export const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    connectWallet();
     checkIfWalletIsConnected();
   }, []);
 
