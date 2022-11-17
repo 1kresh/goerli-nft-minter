@@ -17,6 +17,8 @@ import { AppContext } from "../contexts/AppContext";
 import Minter_metadata from "../public/contracts/Minter_metadata.json";
 import axios from "axios";
 
+import { MINTER_CONTRACTS } from "../constants";
+
 export default function Home() {
   const {
     walletAddress,
@@ -131,7 +133,7 @@ export default function Home() {
       setIsLoading(true);
       const contractTmp = new web3.eth.Contract(
         Minter_metadata["output"]["abi"],
-        "0xE1Aa2f56D5FD27C683122B1E723a93399dA36166"
+        MINTER_CONTRACTS[chainId]
       );
 
       const { imageIpfsHash, metadata } = await submitNFTMetadata(
